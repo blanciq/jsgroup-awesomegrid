@@ -1,0 +1,167 @@
+/* GENERAL STYLE */
+html, body {
+  height: 100%;
+}
+body {
+	font-family: Tahoma;
+	font-size: 12px;
+	background-color: #e9f0f4;
+	line-height: 1.5;
+	color: #2e3641;
+}
+h1 {
+	font-family: 'Lobster', cursive;
+	font-size: 30px;
+	text-align: center;
+}
+label {
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 15px;
+	display: inline-block;
+	width: 100px;
+}
+input[type="text"],
+input[type="email"] {
+	width: 150px;
+	border: 1px solid #c1cfd9;
+	background-color: #fff;
+	padding: 5px 10px;
+	font-family: Tahoma;
+	color: #2e3641;
+}
+input[type="text"]:focus,
+input[type="email"]:focus {
+	border: 1px solid #a8bd44;
+	outline: 0px solid transparent;
+}
+input[type="submit"] {
+	background-color: #a8bd44;
+	color: #ffffff;
+	padding: 5px 10px;
+	border-width: 0px;
+	font-weight: bold;
+}
+input[type="reset"] {
+	background-color: #f97e76;
+	color: #ffffff;
+	padding: 5px 10px;
+	border-width: 0px;
+	font-weight: bold;
+	float: left;
+}
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+	background-color: #c1cfd9;
+	cursor: pointer;
+	transition: background-color 0.5s;
+	-webkit-transition: background-color 0.5s;
+}
+
+/* WRAPPER */
+.page-wrapper {
+  min-height: 100%;
+  margin-bottom: -80px; 
+}
+.page-wrapper:after {
+  content: "";
+  display: block;
+  height: 80px;
+}
+
+/* HEADER */
+header {
+	background-color: #2e3641;
+	color: #c1cfd9;
+	padding: 30px 0;
+	min-width: 960px;
+}
+
+/* SECTION */
+section {
+	width: 960px;
+	margin: 0 auto 40px auto;
+}
+section table {
+	background-color: #ffffff;
+	width: 100%;
+	text-align: left;
+	margin: 40px 0;
+}
+section table thead tr th {
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 18px;
+	background-color: #f97e76;
+	color: #ffffff;
+	padding: 10px;
+}
+section table tbody tr td {
+	padding: 10px;
+	transition: background-color 0.5s;
+	-webkit-transition: background-color 0.5s;
+	border-bottom: 1px solid #edf3f6;
+}
+section table tbody tr.odd td {
+	background-color: #fafcfd;
+}
+section table tbody tr:hover td {
+	background-color: #9eb2c0;
+	color: #ffffff;
+	transition: background-color 0.5s;
+	-webkit-transition: background-color 0.5s;
+}
+section table tbody tr td.index_1,
+section table thead tr th.index_1 {
+	width: 15%;
+	padding-left: 30px;
+}
+section table tbody tr td.index_2,
+section table thead tr th.index_2 {
+	width: 20%;
+}
+section table tbody tr td.index_3,
+section table thead tr th.index_3 {
+	width: 25%;
+}
+section table tbody tr td.index_4,
+section table thead tr th.index_4 {
+	width: 20%;
+	text-align: center;
+}
+section table tbody tr td.index_5,
+section table thead tr th.index_5 {
+	width: 20%;
+}
+section form {
+	background-color: #ffffff;
+	display: inline-block;	
+}
+form p {
+	padding: 30px;
+}
+section form .form-header {
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 20px;
+	background-color: #2e3641;
+	color: #ffffff;
+	padding: 10px 30px;
+}
+section form .form-actions {
+	text-align: right;
+	padding-top: 20px;
+}
+section form span {
+	display: block;
+	margin-bottom: 5px;
+}
+
+/* FOOTER */
+footer {
+	background-color: #2e3641;
+	color: #c1cfd9;
+	text-align: center;
+	height: 80px;
+	min-width: 960px;
+}
+footer p {
+	padding: 30px;
+}
