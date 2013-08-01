@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <title>JsGroup Awesome Grid Plugin</title>
+        <meta name="description" content="" />
+        <meta name="author" content="marcin.kasperski, paulina.zmijewska" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	       
+		<link href="public/css/reset.css" rel="stylesheet" />
+        <link href="public/css/style.css" rel="stylesheet" />
+        <link href='http://fonts.googleapis.com/css?family=Lobster|Convergence|Open+Sans+Condensed:300|Krona+One|Buda:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+		
+		 <script data-main="public/scripts/require-main.js" src="public/lib/requireJS/require.js"></script>
+        <script src="public/scripts/require-config.js"></script>
+    </head>
+    <body>
+        <div class="page-wrapper">
+			<header class="page-header">
+				<h1>JsGroup Awesome Grid Plugin</h1>
+			</header>
+			<section class="main-content">
+				<table class="awesome-grid-table">
+					<thead class="grid-header">
+						<tr class="grid-row">
+							<th class="grid-cell index_1">Name</th>
+							<th class="grid-cell index_2">Surname</th>
+							<th class="grid-cell index_3">E-mail</th>
+							<th class="grid-cell index_4">Currency</th>
+							<th class="grid-cell index_5">Date &amp; time</th>
+							<!-- <th class="grid-cell index_6">Checkbox</th> -->
+						</tr>
+					</thead>
+					<tbody class="grid-body">
+						<tr class="grid-row row-1 first-row odd">
+							<td class="grid-cell index_1">Paweł</td>
+							<td class="grid-cell index_2">Olesiejuk</td>
+							<td class="grid-cell index_3">pawel.olesiejuk@goyello.com</td>
+							<td class="grid-cell index_4">60&euro;</td>
+							<td class="grid-cell index_5">25.07.2013 16:00</td>
+							<!-- <td class="grid-cell index_6">
+								<input type="checkbox" name="checkbox-001" class="checkbox" checked="checked" />
+							</td> -->
+						</tr>
+						<tr class="grid-row row-2 even">
+							<td class="grid-cell index_1">Paulina</td>
+							<td class="grid-cell index_2">Żmijewska</td>
+							<td class="grid-cell index_3">paulina.zmijewska@goyello.com</td>
+							<td class="grid-cell index_4">60&euro;</td>
+							<td class="grid-cell index_5">01.08.2013 16:30</td>
+							<!-- <td class="grid-cell index_6">
+								<input type="checkbox" name="checkbox-002" class="checkbox" checked="checked" />
+							</td> -->
+						</tr>
+						<tr class="grid-row row-3 last-row odd">
+							<td class="grid-cell index_1">Marcin</td>
+							<td class="grid-cell index_2">Kasperski</td>
+							<td class="grid-cell index_3">marcin.kasperski@goyello.com</td>
+							<td class="grid-cell index_4">60&euro;</td>
+							<td class="grid-cell index_5">08.08.2013 17:00</td>
+							<!-- <td class="grid-cell index_6">
+								<input type="checkbox" name="checkbox-003" class="checkbox" checked="checked" />
+							</td> -->
+						</tr>
+					</tbody>
+				</table>
+				<form action="index.html" method="post">
+					<span class="form-header">Form</span>
+					<p>
+						<span>
+							<label for="firstname">Name: </label>
+							<input type="text" id="firstname">
+						</span>
+						<span>
+							<label for="lastname">Surname: </label>
+							<input type="text" id="lastname"><BR>
+						</span>
+						<span>
+							<label for="email">Email: </label>
+							<input type="text" id="email"><BR>
+						</span>
+						<span>
+							<label for="currency">Currency: </label>
+							<input type="text" id="currency"><BR>
+						</span>
+						<span>
+							<label for="datetime">Date & time: </label>
+							<input type="text" id="datetime"><BR>
+						</span>
+						<span class="form-actions">
+							<input type="reset" value="Reset">
+							<input type="submit" value="Send"> 
+						</span>
+					</p>
+				</form>
+			</section>
+		</div>
+        <footer class="page-footer">
+            <p>Goyello &copy; Copyright 2013. Brought to You with &hearts; by jsGroup members. All Rights Reserved.</p>
+        </footer>
+    </body>
+</html>
