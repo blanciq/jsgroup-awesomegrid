@@ -10,13 +10,10 @@ Instruction to sync gh-pages branch (so it's visible on hosted version) with the
 
     git checkout gh-pages
     git merge master
+    git push origin
 
-If there's a conflict, we will usually resolve it using theirs
+If there's a conflict, we will need to do a couple more instruction between merge and pushing (assuming that we will be resolving it using theirs - as there won't be independent changes on gh-pages):
 
     git checkout --theirs <filename>
     git add <filename>
-
-Now finally commiting new content to gh-pages
-
     git commit -m "message"
-    git push gh-pages
