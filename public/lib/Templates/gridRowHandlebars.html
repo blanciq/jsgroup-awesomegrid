@@ -1,0 +1,14 @@
+{{#customEach people}}
+<tr class="grid-row row-{{$index}}{{#if $first}} first-row{{/if}}{{#if $last}} last-row{{/if}}{{#if $odd}} odd{{else}} even{{/if}}" >
+    <td class="grid-cell index_1">{{name}}</td>
+    <td class="grid-cell index_2">{{surname}}</td>
+    {{!-- This will be in output --}}
+    <td class="grid-cell index_3">{{emailLink mail}}</td>
+    <td class="grid-cell index_4">{{currency}}</td>
+    <td class="grid-cell index_5">{{datetime}} {{! because of closure idx can be accessed multiple times}}</td>
+</tr>
+{{else}}
+<tr>
+    <td colspan="5"><h1>No people</h1></td>
+</tr>
+{{/customEach}}

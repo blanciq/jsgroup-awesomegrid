@@ -8,6 +8,7 @@
             "awesomeGrid": "lib/AwesomeGrid/scripts/AwesomeGrid.plugin",
             "ajaxCalls": "lib/AwesomeGrid/scripts/ajaxCalls",
             "mustache": "lib/Mustache/mustache",
+            "handlebars": "lib/Handlebars/handlebars",
             "text": "lib/Text/text"
         },
         shim: {
@@ -17,6 +18,9 @@
             },
             "mustache": {
                 exports: "stache"
+            }, 
+            "handlebars": {
+                exports: "bars"
             }
         }
     });

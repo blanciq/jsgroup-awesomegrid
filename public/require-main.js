@@ -1,6 +1,6 @@
 define(
-    ["jquery", "mustache", "text!lib/Templates/gridRow.html", "awesomeGrid"],
-    function($, stache, template) {
+    ["jquery", "mustache", "handlebars", "text!lib/Templates/gridRowMustache.html", "text!lib/Templates/gridRowHandlebars.html", "awesomeGrid"],
+    function($, stache, bars, template, templateHandleBars) {
         "use strict";
 
         function stacheTemplating(inputData) {
@@ -16,11 +16,43 @@ define(
                 emailLink: function (text, render) {
                     return function (text, render) {
                         var renderedText = render(text);
-                        return '<a href="' + renderedText + '">' + renderedText + '</a>';
+                        return '<a href="mailto:' + renderedText + '">' + renderedText + '</a>';
                     };
                 }
             };
             return stache.render(template, data);
+        }
+
+        function handlebarTemplating(inputData) {
+            Handlebars.registerHelper("customEach", function(arr, options) {
+                if(options.inverse && !arr.length)
+                    return options.inverse(this);
+
+                return arr.map(function(item,index) {
+                    item.$index = index + 1;
+                    item.$first = index === 0;
+                    item.$odd = (index + 1) % 2; 
+                    item.$last  = index === arr.length-1;
+                    return options.fn(item);
+                }).join('');
+            });
+
+            Handlebars.registerHelper('makeCell', function(index, options) {
+                return '<td class="grid-cell index_' + index + '">' + options.fn(this) + '</td>';
+            });
+
+            Handlebars.registerHelper('emailLink', function(email) {
+                //email = Handlebars.Utils.escapeExpression(email);
+                return new Handlebars.SafeString('<a href="mailto:' + email + '">' + email + '</a>');
+
+                //if instead it would be called {{#emailLink}}{{mail}}{{/emailLink}} it could look like this
+                // email = email.fn(this);
+                // return new Handlebars.SafeString('<a href="mailto:' + email + '">' + email + '</a>');
+            });
+
+            var data = { people: inputData };
+            var compiledTemplate = Handlebars.compile(templateHandleBars);
+            return compiledTemplate(data);
         }
 
         $(".awesome-grid-table").awesomeGrid( { 
