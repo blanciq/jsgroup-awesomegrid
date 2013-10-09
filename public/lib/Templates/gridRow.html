@@ -1,0 +1,16 @@
+{{#people}}
+<tr class="grid-row row-{{idx}}{{#first}} first-row{{/first}}{{#last}} last-row{{/last}}{{#odd}} odd{{/odd}}{{^odd}} even{{/odd}}" >
+    <td class="grid-cell index_1">{{name}}</td>
+    <td class="grid-cell index_2">{{& surname}}</td>
+    <td class="grid-cell index_3">{{#emailLink}} {{mail}} {{/emailLink}}</td>
+    <td class="grid-cell index_4">{{currency}}</td>
+    <td class="grid-cell index_5">{{datetime}} {{! because of closure idx can be accessed multiple times}}</td>
+</tr>
+{{/people}}
+{{^people}}
+<tr>
+    <td colspan="5"><h1>No people</h1></td>
+</tr>
+{{/people}}
+{{> user}}
+{{! Mustache templates can be compiled, useful when used often }}
