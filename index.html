@@ -20,99 +20,79 @@
 			<header class="page-header">
 				<h1>JsGroup Awesome Grid Plugin</h1>
 			</header>
-			<section class="main-content">
-				<table class="awesome-grid-table">
-					<thead class="grid-header">
-						<tr class="grid-row">
-							<th class="grid-cell index_1">Name</th>
-							<th class="grid-cell index_2">Surname</th>
-							<th class="grid-cell index_3">E-mail</th>
-							<th class="grid-cell index_4">Currency</th>
-							<th class="grid-cell index_5">Date &amp; time</th>
-							<!-- <th class="grid-cell index_6">Checkbox</th> -->
-						</tr>
-					</thead>
-					<tbody class="grid-body">
-						<tr class="grid-row row-1 first-row odd">
-							<td class="grid-cell index_1">Paweł</td>
-							<td class="grid-cell index_2">Olesiejuk</td>
-							<td class="grid-cell index_3">pawel.olesiejuk@goyello.com</td>
-							<td class="grid-cell index_4">60&euro;</td>
-							<td class="grid-cell index_5">25.07.2013 16:00</td>
-							<!-- <td class="grid-cell index_6">
-								<input type="checkbox" name="checkbox-001" class="checkbox" checked="checked" />
-							</td> -->
-						</tr>
-						<tr class="grid-row row-2 even">
-							<td class="grid-cell index_1">Paulina</td>
-							<td class="grid-cell index_2">Żmijewska</td>
-							<td class="grid-cell index_3">paulina.zmijewska@goyello.com</td>
-							<td class="grid-cell index_4">60&euro;</td>
-							<td class="grid-cell index_5">01.08.2013 16:30</td>
-							<!-- <td class="grid-cell index_6">
-								<input type="checkbox" name="checkbox-002" class="checkbox" checked="checked" />
-							</td> -->
-						</tr>
-						<tr class="grid-row row-3 odd">
-							<td class="grid-cell index_1">Marcin</td>
-							<td class="grid-cell index_2">Kasperski</td>
-							<td class="grid-cell index_3">marcin.kasperski@goyello.com</td>
-							<td class="grid-cell index_4">60&euro;</td>
-							<td class="grid-cell index_5">08.08.2013 17:00</td>
-							<!-- <td class="grid-cell index_6">
-								<input type="checkbox" name="checkbox-003" class="checkbox" checked="checked" />
-							</td> -->
-						</tr>
-						<tr class="grid-row row-4 last-row even">
-							<td class="grid-cell index_1">Sławomir</td>
-							<td class="grid-cell index_2">Zarucki</td>
-							<td class="grid-cell index_3">slawomir.zarucki@goyello.com</td>
-							<td class="grid-cell index_4">666&euro;</td>
-							<td class="grid-cell index_5">06.06.2006 13:37</td>
-							<!-- <td class="grid-cell index_6">
-								<input type="checkbox" name="checkbox-002" class="checkbox" checked="checked" />
-							</td> -->
-						</tr>
-					</tbody>
-				</table>
+            <section class="main-content">
+                <table class="awesome-grid-table">
+                    <thead class="grid-header">
+                        <tr class="grid-row">
+                            <th class="grid-cell index_1">Name</th>
+                            <th class="grid-cell index_2">Surname</th>
+                            <th class="grid-cell index_3">E-mail</th>
+                            <th class="grid-cell index_4">Currency</th>
+                            <th class="grid-cell index_5">Date &amp; time</th>
+                            <!-- <th class="grid-cell index_6">Checkbox</th> -->
+                        </tr>
+                    </thead>
+                    <tbody class="grid-body" data-bind="foreach: rows">
+                        <tr class="grid-row even">
+                            <td class="grid-cell index_1"><input type="text" data-bind="value: name"/></td>
+                            <td class="grid-cell index_2" data-bind="text: fullName" />
+                            <td class="grid-cell index_3" data-bind="text: mail" />
+                            <td class="grid-cell index_4" data-bind="text: currency" />
+                            <td class="grid-cell index_5" data-bind="text: date" />
+                            <!-- <td class="grid-cell index_6">
+                                        <input type="checkbox" name="checkbox-001" class="checkbox" checked="checked" />
+                                    </td> -->
+                        </tr>
+                        <tr class="grid-row odd">
+                            <td class="grid-cell index_1" span="2" data-bind="text: name" />
+                            <td class="grid-cell index_2" data-bind="text: surname" />
+                            <td class="grid-cell index_3" data-bind="text: mail" />
+                            <td class="grid-cell index_4" data-bind="text: currency" />
+                            <td class="grid-cell index_5" data-bind="text: date" />
+                            <!-- <td class="grid-cell index_6">
+                                        <input type="checkbox" name="checkbox-001" class="checkbox" checked="checked" />
+                                    </td> -->
+                        </tr>
+                    </tbody>
+                </table>
 				
-		                <div class="ajax-form">
-		                    <div class="ajax-form-actions">
-		                        <a href="#" class="ajax-get-data-button" id="get-data">Get Data</a> &nbsp; 
-		                        <a href="#" class="ajax-get-data-button" id="get-data2">Get Data</a> 
-		                    </div>
-		                </div>
+                <div class="ajax-form">
+                    <div class="ajax-form-actions">
+                        <a href="#" class="ajax-get-data-button" id="get-data">Get Data</a> &nbsp; 
+                        <a href="#" class="ajax-get-data-button" id="get-data2">Get Data</a> 
+                    </div>
+                </div>
 				
-				<form action="index.html" method="post">
-					<span class="form-header">Form</span>
-					<p>
-						<span>
-							<label for="firstname">Name: </label>
-							<input type="text" id="firstname">
-						</span>
-						<span>
-							<label for="lastname">Surname: </label>
-							<input type="text" id="lastname"><BR>
-						</span>
-						<span>
-							<label for="email">Email: </label>
-							<input type="text" id="email"><BR>
-						</span>
-						<span>
-							<label for="currency">Currency: </label>
-							<input type="text" id="currency"><BR>
-						</span>
-						<span>
-							<label for="datetime">Date & time: </label>
-							<input type="text" id="datetime"><BR>
-						</span>
-						<span class="form-actions">
-							<input type="reset" value="Reset">
-							<input type="submit" value="Send"> 
-						</span>
-					</p>
-				</form>
-			</section>
+                <form action="index.html" method="post">
+                    <span class="form-header">Form</span>
+                    <p>
+                        <span>
+                            <label for="firstname">Name: </label>
+                            <input type="text" id="firstname">
+                        </span>
+                        <span>
+                            <label for="lastname">Surname: </label>
+                            <input type="text" id="lastname"><BR>
+                        </span>
+                        <span>
+                            <label for="email">Email: </label>
+                            <input type="text" id="email"><BR>
+                        </span>
+                        <span>
+                            <label for="currency">Currency: </label>
+                            <input type="text" id="currency"><BR>
+                        </span>
+                        <span>
+                            <label for="datetime">Date & time: </label>
+                            <input type="text" id="datetime"><BR>
+                        </span>
+                        <span class="form-actions">
+                            <input type="reset" value="Reset">
+                            <input type="submit" value="Send"> 
+                        </span>
+                    </p>
+                </form>
+            </section>
 		</div>
         <footer class="page-footer">
             <p>Goyello &copy; Copyright 2013. Brought to You with &hearts; by jsGroup members. All Rights Reserved.</p>

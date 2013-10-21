@@ -159,4 +159,6 @@ $.fn.awesomeGrid = function(options) {
             )
         ];
     }
+    
+    ko.applyBindings(new $.awesomeGridViewModel(options), this[0]);
 };

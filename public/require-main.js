@@ -1,20 +1,20 @@
-define(
+﻿define(
     ["jquery", "mustache", "handlebars", "text!lib/Templates/gridRowMustache.html", "text!lib/Templates/gridRowHandlebars.html", "awesomeGrid"],
     function($, stache, bars, template, templateHandleBars) {
         "use strict";
 
         function stacheTemplating(inputData) {
-            $.each(inputData, function (i, val) {
-                val.idx = (function(in_i){return in_i+1;})(i);
+            $.each(inputData, function(i, val) {
+                val.idx = (function(in_i) { return in_i + 1; })(i);
                 val.first = i === 0;
                 val.last = i === inputData.length - 1;
                 val.odd = (i + 1) % 2;
             });
 
-            var data = { 
+            var data = {
                 people: inputData,
-                emailLink: function (text, render) {
-                    return function (text, render) {
+                emailLink: function(text, render) {
+                    return function(text, render) {
                         var renderedText = render(text);
                         return '<a href="mailto:' + renderedText + '">' + renderedText + '</a>';
                     };
@@ -25,14 +25,14 @@ define(
 
         function handlebarTemplating(inputData) {
             Handlebars.registerHelper("customEach", function(arr, options) {
-                if(options.inverse && !arr.length)
+                if (options.inverse && !arr.length)
                     return options.inverse(this);
 
-                return arr.map(function(item,index) {
+                return arr.map(function(item, index) {
                     item.$index = index + 1;
                     item.$first = index === 0;
-                    item.$odd = (index + 1) % 2; 
-                    item.$last  = index === arr.length-1;
+                    item.$odd = (index + 1) % 2;
+                    item.$last = index === arr.length - 1;
                     return options.fn(item);
                 }).join('');
             });
@@ -55,8 +55,27 @@ define(
             return compiledTemplate(data);
         }
 
-        $(".awesome-grid-table").awesomeGrid( { 
+        function getItems() {
+            return [
+                {
+                    name: "Paweł",
+                    surname: "Olesiejuk",
+                    mail: "pawel.olesiejuk",
+                    currency: "60 EUR",
+                    date: "25.07.2013 16:00"
+                },
+                {
+                    name: "Paulina",
+                    surname: "Żmijewska",
+                    mail: "paulina.zmijewska@goyello.com",
+                    currency: "60 EUR",
+                    date: "01.08.2013 16:30"
+                }];
+        }
+
+        $(".awesome-grid-table").awesomeGrid({
             useTemplates: true,
-            templateFunction: stacheTemplating
+            templateFunction: stacheTemplating,
+            //getItems: getItems
         });
-});
+    });
