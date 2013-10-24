@@ -14,18 +14,6 @@
 		
 		<script data-main="public/require-main.js" src="public/lib/requireJS/require.js"></script>
         <script src="public/scripts/require-config.js"></script>
-
-        <script id="peopleList" type="text/x-handlebars-template">
-            {{#rows}}
-            <tr class="grid-row row-{{$index}}{{#if $first}} first-row{{/if}}{{#if $last}} last-row{{/if}}{{#if $odd}} odd{{else}} even{{/if}}">
-                <td class="grid-cell index_1">{{name}}</td>
-                <td class="grid-cell index_2">{{surname}}</td>
-                <td class="grid-cell index_3">{{mail}}</td>
-                <td class="grid-cell index_4">{{currency}}</td>
-                <td class="grid-cell index_5">{{datetime}}</td>
-            </tr>
-            {{/rows}}
-        </script>
     </head>
     <body>
         <div class="page-wrapper">
@@ -44,13 +32,14 @@
                             <!-- <th class="grid-cell index_6">Checkbox</th> -->
                         </tr>
                     </thead>
-                    <tbody class="grid-body" data-bind="template: 'peopleList'"></tbody>
+                    <tbody class="grid-body" data-bind="template: 'rows'">
+                    </tbody>
                 </table>
 				
                 <div class="ajax-form">
                     <div class="ajax-form-actions">
                         <a href="#" class="ajax-get-data-button" id="get-data">Get Data</a> &nbsp; 
-                        <a href="#" class="ajax-get-data-button" id="get-data2">Get Data</a> &nbsp;
+                        <a href="#" class="ajax-get-data-button" id="get-data2">Get Data</a>&nbsp;
                         <a href="#" class="ajax-get-data-button" id="append-some-data">Append Data</a> &nbsp;
                     </div>
                 </div>

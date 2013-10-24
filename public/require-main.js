@@ -30,25 +30,20 @@
                 // return new Handlebars.SafeString('<a href="mailto:' + email + '">' + email + '</a>');
             });
 
-            var data = { people: inputData };
+            var data = { people: inputData.rows() };
             var compiledTemplate = Handlebars.compile(template);
             return compiledTemplate(data);
         }
 
         var handlebarsTemplateEngine = function () { };
         handlebarsTemplateEngine.prototype = ko.utils.extend(new ko.templateEngine(), {
-            templates: {},
-            renderTemplateSource: function (templateSource, bindingContext, options) {
+            templates: {'rows': handlebarTemplating},
+            makeTemplateSource: function(template, templateDocument){
+                return template
+            },
+            renderTemplateSource: function (templateId, bindingContext, options) {
                 var data = bindingContext.$data,
-                    templateId = templateSource.i.id,
-                    templateText = templateSource.text(),
                     compiledTemplate = this.templates[templateId];
-
-                // only compile the template once on the client
-                if (compiledTemplate == null) {
-                    compiledTemplate = Handlebars.compile(templateText);
-                    this.templates[templateId] = compiledTemplate;
-                }
 
                 return ko.utils.parseHtmlFragment(compiledTemplate(data));
             },
