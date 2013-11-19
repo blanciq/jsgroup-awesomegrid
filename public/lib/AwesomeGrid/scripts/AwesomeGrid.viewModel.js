@@ -50,26 +50,51 @@
             )
         );
     });
+	
+	$('#get-data').click(function(event) {
+			$.get('http://localhost:8080/?file=osoby')
+			.done(function(response) {
+				var newData = [];
+				$(JSON.parse(response)).each(function(index, item){
+					newData.push(new DataRecord(
+						item.name,
+						item.surname,
+						item.mail,
+						item.currency,
+						item.datetime
+					));
+				});
+				data(newData);
+			});
+	});
 
+	
+	var formToObj = function (form){
+		var obj = {};
+		$(form).each(function(index, item){
+			obj[item.name] = item.value;
+		});
+		return obj;
+	}
     $('form').submit(function(event){
         event.preventDefault();
-        data.push(
-            new DataRecord(
-                $('#firstname').val(),
-                $('#lastname').val(),
-                $('#email').val(),
-                $('#currency').val(),
-                $('#datetime').val()
-            )
-        );
-        $(this)[0].reset();
+        var $form = $(this);
+        $.ajax({
+			url: 'http://localhost:8080/?file=osoby',
+			type: 'POST',
+			contentType: 'application/json',
+			dataType: 'json',
+			data: JSON.stringify(formToObj($form.serializeArray())),
+			error: function(){
+				for(var index in arguments){
+					console.log(arguments[index]);
+				}
+			}
+		});
+        //this.reset();
     });
 
     var data = ko.observableArray(getFakeJsdata());
-
-    data.subscribe(function(value){
-        console.log(value);
-    });
 
     return {
         rows: data

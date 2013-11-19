@@ -7,7 +7,5 @@ $.fn.awesomeGrid = function (options) {
     };
     options = $.extend({}, defaultOptions, options);
 
-    this.fadeOut('slow').fadeIn('slow');
-
     ko.applyBindings(new $.awesomeGridViewModel(options));
 };
