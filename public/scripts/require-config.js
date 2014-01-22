@@ -5,6 +5,7 @@
         baseUrl: "public",
         paths: {
             "jquery": "lib/jQuery/jquery-1.9.1.min",
+            "jqueryValidation": "lib/Validation/jquery.validate",
             "awesomeGrid": "lib/AwesomeGrid/scripts/AwesomeGrid.plugin",
             "awesomeGridViewModel": "lib/AwesomeGrid/scripts/AwesomeGrid.viewModel",
             "ajaxCalls": "lib/AwesomeGrid/scripts/ajaxCalls",
@@ -27,6 +28,9 @@
             },
             "handlebars": {
                 exports: "bars"
+            },
+            "jqueryValidation": {
+                deps: ["jquery"]
             }
         }
     });

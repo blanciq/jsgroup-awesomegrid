@@ -1,5 +1,5 @@
 ﻿define(
-    ["jquery", "handlebars", "text!lib/Templates/gridRowHandlebars.html", "awesomeGrid"],
+    ["jquery", "handlebars", "text!lib/Templates/gridRowHandlebars.html", "jqueryValidation",  "awesomeGrid"],
     function($, bars, template ) {
         "use strict";
 

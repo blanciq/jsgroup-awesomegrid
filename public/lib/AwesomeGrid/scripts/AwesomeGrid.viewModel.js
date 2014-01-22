@@ -51,18 +51,53 @@
         );
     });
 
-    $('form').submit(function(event){
-        event.preventDefault();
-        data.push(
-            new DataRecord(
-                $('#firstname').val(),
-                $('#lastname').val(),
-                $('#email').val(),
-                $('#currency').val(),
-                $('#datetime').val()
-            )
-        );
-        $(this)[0].reset();
+    $('form').validate({
+        submitHandler: function(form){
+            data.push(
+                new DataRecord(
+                    $('#firstname').val(),
+                    $('#lastname').val(),
+                    $('#email').val(),
+                    $('#currency').val(),
+                    $('#datetime').val()
+                )
+            );
+            $(this)[0].reset();
+        },
+        invalidHandler: function (data) {
+            alert('This incident will be reported');
+        },
+        errorElement: 'span',
+
+        rules : {
+            firstname : {
+                required: true,
+                minlength: 3
+            },
+            lastname : {
+                required: true,
+                minlength: 3
+            },
+            email : {
+                required: true,
+                email: true
+            },
+            currency : {
+                required: true
+            },
+            datetime : {
+                required: true
+            }
+        },
+        messages: {
+            firstname: {
+                required: "We'd like to know your name",
+                minlength: jQuery.format("At least {0} characters required!")
+            }
+        }
+    });
+    $('form input').each(function(index, element){
+        console.log($(element).rules());
     });
 
     var data = ko.observableArray(getFakeJsdata());
