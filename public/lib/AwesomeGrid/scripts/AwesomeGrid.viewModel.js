@@ -51,6 +51,16 @@
         );
     });
 
+
+    $.validator.addMethod(
+        "regex",
+        function(value, element, regexp) {
+            var re = new RegExp(regexp);
+            return this.optional(element) || re.test(value);
+        },
+        "Please check your input."
+    );
+
     $('form').validate({
         submitHandler: function(form){
             data.push(
@@ -72,7 +82,8 @@
         rules : {
             firstname : {
                 required: true,
-                minlength: 3
+                minlength: 3,
+                regex: "[A-Za-z]+"
             },
             lastname : {
                 required: true,
@@ -92,7 +103,8 @@
         messages: {
             firstname: {
                 required: "We'd like to know your name",
-                minlength: jQuery.format("At least {0} characters required!")
+                minlength: jQuery.format("At least {0} characters required!"),
+                regex: "That's not your name! What's your real name?"
             }
         }
     });
